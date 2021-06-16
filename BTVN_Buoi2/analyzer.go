@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+//2.1 Gom tất cả những người trong cùng một thành phố lại
 func GroupPeopleByCity(p []Person) (result map[string][]Person) {
 	result = make(map[string][]Person)
 	for _, person := range p {
@@ -13,6 +14,7 @@ func GroupPeopleByCity(p []Person) (result map[string][]Person) {
 	return result
 }
 
+//2.2 Nhóm các nghề nghiệp và đếm số người làm
 func GroupPeopleByJob(p []Person) (result map[string]int) {
 	result = make(map[string]int)
 	for _, person := range p {
@@ -21,6 +23,8 @@ func GroupPeopleByJob(p []Person) (result map[string]int) {
 	return result
 }
 
+
+//2.3 Tìm 5 nghề có nhiều người làm nhất, đếm từ cao xuống thấp
 type NumberOnJob struct {
 	NameJob string
 	Number  int
@@ -38,6 +42,7 @@ func Top5JobsByNumer(job map[string]int) []NumberOnJob {
 	return listJob[0:5]
 }
 
+//2.4 Tìm 5 thành phố có nhiều người trong danh sách ở nhất, đếm từ cao xuống thấp
 type NumberInCity struct {
 	NameCity     string
 	NumberPeople int
@@ -57,6 +62,7 @@ func Top5CitiesByNumber(p []Person) []NumberInCity {
 	return listCities[0:5]
 }
 
+//2.5 Trong mỗi thành phố, hãy tìm ra nghề nào được làm nhiều nhất
 func TopJobByNumerInEachCity(p []Person) (result map[string]NumberOnJob) {
 	result = make(map[string]NumberOnJob)
 	numberJobsInCity := JobInCity(p)
@@ -66,6 +72,7 @@ func TopJobByNumerInEachCity(p []Person) (result map[string]NumberOnJob) {
 	return result
 }
 
+//tính số lượng công việc trong thành phố
 func JobInCity(p []Person) (result map[string][]string) {
 	result = make(map[string][]string)
 	for _, person := range p {
@@ -74,6 +81,9 @@ func JobInCity(p []Person) (result map[string][]string) {
 	return result
 }
 
+
+//2.6 Ứng với một nghề, hãy tính mức lương trung bình
+//tính số người trong mỗi công việc
 func countJob(listJob []string) (result NumberOnJob) {
 	jobs := make(map[string]int)
 	for _, job := range listJob {
@@ -105,6 +115,7 @@ func AverageSalaryByJob(p []Person) (result map[string]float32) {
 
 }
 
+//2.7 Năm thành phố có mức lương trung bình cao nhất
 type AverageSalaryByCity struct {
 	NameCity      string
 	AverageSalary int
@@ -136,6 +147,8 @@ func FiveCitiesHasTopAverageSalary(p []Person) (result []AverageSalaryByCity) {
 	return result
 }
 
+
+//2.8 Năm thành phố có mức lương trung bình của developer cao nhất
 func FiveCitiesHasTopSalaryForDeveloper(p []Person) (result []AverageSalaryByCity) {
 	//tính lương của dev trong mỗi thành phố
 	salaryDevInCity := make(map[string]int)
@@ -170,6 +183,8 @@ func FiveCitiesHasTopSalaryForDeveloper(p []Person) (result []AverageSalaryByCit
 	}
 }
 
+
+//2.9 Tuổi trung bình từng nghề nghiệp
 func AverageAgePerJob(p []Person) (result map[string]int) {
 	result = make(map[string]int)
 	//tổng số tuổi trong mỗi nghề
@@ -190,7 +205,7 @@ func AverageAgePerJob(p []Person) (result map[string]int) {
 	return result
 }
 
-
+//2.10 Tuổi trung bình ở từng thành phố
 func AverageAgePerCity(p []Person) (result map[string]int) {
 	// tính số người mỗi thành phố
 	result = make(map[string]int)
