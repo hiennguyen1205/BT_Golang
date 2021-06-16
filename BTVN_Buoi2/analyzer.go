@@ -212,7 +212,6 @@ func AverageAgePerCity(p []Person) (result map[string]int) {
 	for _, person := range p {
 		result[person.City]++
 	}
-
 	//tính tổng số tuổi mỗi thành phố
 	totalAgeInCity := make(map[string]int)
 	for _, person := range p {
