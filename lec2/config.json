@@ -1,0 +1,14 @@
+[
+  {
+    "username": "lengdoe",
+    "password": "hanoi",
+    "gender": "Female",
+    "age" : 13
+  },
+  {
+    "username": "Sibylla",
+    "password": "bacninh",
+    "gender": "Female",
+    "age": 13
+  }
+]
